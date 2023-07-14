@@ -1,0 +1,15 @@
+[
+    {
+        "id_playlist": 123,
+        "user_id":  123,
+        "songs": [
+            {
+                "id": 123,
+                "title": "Wadu",
+                "artist": "nama artist",
+                "played": 0
+            }
+        ],
+        "played": 0
+    }
+]
