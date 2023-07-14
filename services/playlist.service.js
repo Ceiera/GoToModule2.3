@@ -8,7 +8,7 @@ const getPlaylistByMostPlayed = () => {
     return playlistModel.getPlaylistByMostPlayed()
 }
 const getSongById = (id) => {
-    return playlistModel.getSongById()
+    return playlistModel.getSongById(id)
 }
 
 const addSong = ( title, artist, url ) => {
@@ -16,7 +16,11 @@ const addSong = ( title, artist, url ) => {
 }
 
 const playSong = (id) => {
-    return playlistModel.playSong()
+    const index = playlistModel.findIndexInPlaylist(id)
+    if (index == -1) {
+        return 'error'
+    }
+    return playlistModel.playSong(index)
 }
 
 module.exports = { getPlaylist, getPlaylistByMostPlayed, addSong, getSongById, playSong }

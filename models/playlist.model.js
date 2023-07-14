@@ -28,7 +28,7 @@ const getPlaylistByMostPlayed = () => {
 
 const addSong = ( title, artist, url ) => {
     const song = {
-        id: Date.now() + Math.floor(Math.random() * 100),
+        id: parseInt(Date.now() + Math.floor(Math.random() * 100)),
         title: title,
         artist: artist,
         url: url,
@@ -39,16 +39,16 @@ const addSong = ( title, artist, url ) => {
 }
 
 const getSongById = (id) => {
-    return playlist.find( (x) => x.id === id)
+    return playlist.find( (x) => x.id == id)
 }
 
-const playSong = (id) => {
-    const index = playlist.findIndex( (x) => x.id === id )
-    if (index == -1) {
-        return 'error'
-    }
+const findIndexInPlaylist = (id) => {
+    return playlist.findIndex( (x) => x.id == id )
+}
+
+const playSong = (index) => {
     playlist[index].count++
     return playlist[index]
 }
 
-module.exports = { getPlaylist, getPlaylistByMostPlayed, addSong, getSongById, playSong }
+module.exports = { getPlaylist, getPlaylistByMostPlayed, addSong, findIndexInPlaylist, getSongById, playSong }

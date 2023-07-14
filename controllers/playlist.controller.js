@@ -9,15 +9,24 @@ const getPlaylistByMostPlayed = () => {
 }
 
 const addSong = ( title, artist, url ) => {
+    if (!title || !artist || !url) {
+        return 'Missing body'
+    }
     return playlistModel.addSong(title, artist, url)
 }
 
 const getSongById = (id) => {
-    return playlistService.getSongById()
+    if (!id) {
+        return 'Missing param'
+    }
+    return playlistService.getSongById(id)
 }
 
 const playSong = (id) => {
-    return playlistService.playSong()
+    if (!id) {
+        return 'Missing param'
+    }
+    return playlistService.playSong(id)
 }
 
 module.exports = { getPlaylist, getPlaylistByMostPlayed, addSong, getSongById, playSong }
